@@ -89,12 +89,12 @@ fun LoginScreen(navController: NavHostController) {
                     Icon(imageVector = Icons.Filled.Settings , contentDescription = "settings")
                 }
             },
-            backgroundColor = Color.Green)
+            backgroundColor = Color.Cyan)
 
         Spacer(modifier = Modifier.height(20.dp))
 
         //Lottie Animation
-        val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.register))
+        val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.animation_lmhcc5s9))
         val progress by animateLottieCompositionAsState(composition )
 
         LottieAnimation(composition, progress,
@@ -109,7 +109,8 @@ fun LoginScreen(navController: NavHostController) {
                 onValueChange = {email=it},
                 shape = RoundedCornerShape(5.dp),
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .border(2.dp , Color.Cyan),
                 label = { Text(text = "Email Address")},
                 placeholder = { Text(text = "Enter email")},
                 leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = "") },
@@ -121,7 +122,8 @@ fun LoginScreen(navController: NavHostController) {
             OutlinedTextField(value = password ,
                 onValueChange = {password=it},
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .border(2.dp, Color.Cyan),
                 label = { Text(text = "Password")},
                 placeholder = { Text(text = "Type your password")},
                 leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "") },
@@ -137,7 +139,7 @@ fun LoginScreen(navController: NavHostController) {
             var xyz = AuthViewModel(navController, context)
             xyz.login(email.text,password.text)
         },
-            colors = ButtonDefaults.buttonColors(Color.Green),
+            colors = ButtonDefaults.buttonColors(Color.Cyan),
             modifier = Modifier.width(300.dp),
             shape = CutCornerShape(5.dp)) {
             Text(text = "Login")

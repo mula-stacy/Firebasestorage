@@ -23,6 +23,7 @@ drawable img_18
 drawable img_19
 drawable img_2
 drawable img_20
+drawable img_21
 drawable img_3
 drawable img_4
 drawable img_5

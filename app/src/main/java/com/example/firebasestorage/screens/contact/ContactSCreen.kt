@@ -2,6 +2,7 @@ package com.example.firebasestorage.screens.contact
 
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -85,7 +86,8 @@ fun ContactScreen(navController:NavHostController){
         Text(text = "Send SMS to WhatsApp",
             color= Color.Black,
             fontSize = 20.sp,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+
         )
 
         TextField(
@@ -94,7 +96,9 @@ fun ContactScreen(navController:NavHostController){
             placeholder = { Text(text = "Enter your whatsapp phone number") },
             modifier = Modifier
                 .padding(16.dp)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .border(2.dp, Color.Cyan),
+
             textStyle = TextStyle(color = Color.Black, fontSize = 15.sp),
             singleLine = true,
         )
@@ -106,7 +110,8 @@ fun ContactScreen(navController:NavHostController){
             placeholder = { Text(text = "Enter your message") },
             modifier = Modifier
                 .padding(16.dp)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .border(2.dp, Color.Cyan),
             textStyle = TextStyle(color = Color.Black, fontSize = 15.sp),
             singleLine = true,
         )
@@ -128,9 +133,11 @@ fun ContactScreen(navController:NavHostController){
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(10.dp)
+                .padding(10.dp).border(2.dp, Color.Cyan)
+
         ) {
-            Text(text = "Send Message on WhatsApp")
+            Text(text = "Send Message on WhatsApp",
+            color = Color.Black)
         }
     }
 }

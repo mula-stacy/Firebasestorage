@@ -35,6 +35,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -64,7 +65,10 @@ fun SignupScreen(navController: NavHostController) {
     var email by remember { mutableStateOf(TextFieldValue("")) }
     var password by remember { mutableStateOf(TextFieldValue("")) }
 
-    Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .paint(painterResource(id = R.drawable.img_21), ),
+        horizontalAlignment = Alignment.CenterHorizontally) {
 
         //TopAppBar
         TopAppBar(title = { Text(text = "Create an account")},
@@ -96,7 +100,7 @@ fun SignupScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         //Lottie Animation
-        val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.register))
+        val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.animation_lmhcc5s9))
         val progress by animateLottieCompositionAsState(composition )
 
         LottieAnimation(composition, progress,
@@ -109,11 +113,14 @@ fun SignupScreen(navController: NavHostController) {
                 onValueChange = {username=it},
                 shape = CutCornerShape(5.dp),
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .border(2.dp, Color.Green)
+                ,
                 label = { Text(text = "Username")},
                 placeholder = { Text(text = "Enter username")},
                 leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription = "")},
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+
             )
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -151,7 +158,7 @@ fun SignupScreen(navController: NavHostController) {
             var xyz = AuthViewModel(navController, mContext)
             xyz.signup(email.text.trim(),password.text.trim())
         },
-            colors = androidx.compose.material.ButtonDefaults.buttonColors(Color.Green),
+            colors = androidx.compose.material.ButtonDefaults.buttonColors(Color.Cyan),
             modifier = Modifier.width(300.dp),
             shape = CutCornerShape(5.dp)) {
             Text(text = "Register")
